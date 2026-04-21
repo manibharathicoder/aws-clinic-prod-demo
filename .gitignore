@@ -5,3 +5,8 @@ Thumbs.db
 .idea/
 .vscode/
 *.log
+*.ps1
+*.bat
+connect_github.ps1
+split_code.ps1
+run_split.bat
