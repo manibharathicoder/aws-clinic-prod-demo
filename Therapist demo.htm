@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Sanctuary - Therapist Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f2f4f5",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#004c69",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#cbe6f8",
+                    "outline": "#71787e",
+                    "background": "#f8fafb",
+                    "surface-tint": "#286482",
+                    "on-secondary-fixed-variant": "#304a58",
+                    "tertiary": "#4a2a00",
+                    "primary-fixed": "#c4e7ff",
+                    "on-tertiary-fixed-variant": "#673d05",
+                    "inverse-on-surface": "#eff1f2",
+                    "on-secondary-container": "#4c6675",
+                    "inverse-primary": "#95cef0",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-container": "#e7ab6b",
+                    "outline-variant": "#c0c7ce",
+                    "on-primary-fixed": "#001e2c",
+                    "surface": "#f8fafb",
+                    "tertiary-fixed-dim": "#f8ba79",
+                    "surface-dim": "#d8dadb",
+                    "primary-container": "#004d6a",
+                    "on-secondary-fixed": "#011e2b",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#2c1700",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#afcadc",
+                    "primary": "#00354a",
+                    "surface-container": "#eceeef",
+                    "surface-bright": "#f8fafb",
+                    "surface-container-high": "#e6e8e9",
+                    "tertiary-fixed": "#ffdcbc",
+                    "secondary-container": "#c8e4f5",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-container": "#683e06",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#486271",
+                    "on-primary-container": "#85bddf",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#40484d",
+                    "primary-fixed-dim": "#95cef0",
+                    "on-background": "#191c1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-72 bg-white sticky top-0 py-8 px-6 gap-y-2 shadow-[0_12px_32px_rgba(25,28,29,0.06)] z-50">
+<div class="text-lg font-black text-[#00354a] mb-6">Clinical Sanctuary</div>
+<div class="flex items-center gap-4 mb-10 px-2">
+<img alt="Dr. Priya Mehta profile" class="w-12 h-12 rounded-full object-cover" data-alt="professional headshot of a female South Asian doctor with a kind expression in a bright clinical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGNIjkUw4W0GXp2HUQ41z3MEKDSn2M4n0R9kdpMdeyh4XY-z17tiQcrN29xJBTivuWAgKLPtcx58lc3x6qD8SPsBKRrriAxg8fStpiM3K4VGvsrLNyrSaUKtg7v5wdkRq78QdW0GWjRzUq_PTMblO6x98UlIWvsGMWzcur4vu-hGd1PcCVTln6v9xmUs1N9qy1nhwvAVIPYsq4YI07xNDFkEGwUx3h-mS98bhbIuC_alFQJjM1ej0YFYSTuIAZwvxUioe9xf6rnxY"/>
+<div>
+<p class="font-bold text-primary">Dr. Priya Mehta</p>
+<p class="text-xs text-secondary">Pediatric Therapist</p>
+</div>
+</div>
+<nav class="flex flex-col gap-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#00354a] font-bold border-r-4 border-[#00354a] bg-slate-50 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>My Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>All Schedules</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Session Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">emergency</span>
+<span>Cover Requests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Pay Statements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span>Staff Chat</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full px-8 py-4 flex justify-between items-center bg-[#f8fafb] bg-opacity-90 backdrop-blur-md">
+<div>
+<h1 class="text-xl font-bold text-[#00354a] tracking-[-0.02em]">Dashboard</h1>
+<p class="text-sm text-secondary font-medium">Monday, March 16</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-primary hover:text-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-primary hover:text-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Alert Banner -->
+<div class="bg-primary-container rounded-xl p-4 flex items-center justify-between text-white shadow-lg overflow-hidden relative">
+<div class="flex items-center gap-4 relative z-10">
+<div class="bg-white/20 p-2 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<p class="font-semibold text-on-primary-container">Pay statement for Mar 1–15 is ready. Deadline: Mar 17.</p>
+<p class="text-xs text-on-primary-container/80">Review and confirm by tomorrow EOD.</p>
+</div>
+</div>
+<button class="bg-surface-container-lowest text-primary px-6 py-2 rounded-full text-sm font-bold hover:bg-primary-fixed transition-colors active:scale-95 relative z-10">
+                    Review Statement
+                </button>
+<!-- Decorative element -->
+<div class="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-primary/20 to-transparent"></div>
+</div>
+<!-- Stat Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)] border-l-4 border-primary">
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-2">Sessions this week</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary">5</span>
+<span class="text-xs text-secondary">Target: 8</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)] border-l-4 border-secondary-container">
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-2">Sessions today</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary">2</span>
+<span class="text-xs text-secondary">In progress: 0</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)] border-l-4 border-tertiary-fixed-dim">
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-2">Cover request</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary">1</span>
+<span class="text-xs text-secondary">Pending review</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)] border-l-4 border-error">
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-2">Pay review deadline</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-error">48hr</span>
+<span class="text-xs text-secondary">Remaining</span>
+</div>
+</div>
+</div>
+<!-- Bento Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Today's Sessions - Wide Section -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)] overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center bg-surface-container-low">
+<h2 class="text-lg font-bold text-primary">Today's sessions</h2>
+<button class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline">
+                            View Schedule <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="px-8 pb-6">
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-4">
+<thead>
+<tr class="text-xs font-bold text-secondary tracking-widest uppercase">
+<th class="pb-2">Client ID</th>
+<th class="pb-2">Time</th>
+<th class="pb-2">Type</th>
+<th class="pb-2">Status</th>
+<th class="pb-2">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-4 font-bold text-primary">Client #A12</td>
+<td class="py-4 text-on-surface">9:00 AM</td>
+<td class="py-4 text-secondary text-sm">Speech Therapy</td>
+<td class="py-4">
+<span class="bg-teal-100 text-[#006a6a] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Completed</span>
+</td>
+<td class="py-4">
+<button class="text-primary hover:bg-primary-container hover:text-white p-2 rounded-full transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-4 font-bold text-primary">Client #B07</td>
+<td class="py-4 text-on-surface">11:00 AM</td>
+<td class="py-4 text-secondary text-sm">Occupational Therapy</td>
+<td class="py-4">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Scheduled</span>
+</td>
+<td class="py-4">
+<button class="text-primary hover:bg-primary-container hover:text-white p-2 rounded-full transition-all">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- This Week List - Slim Context Section -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.06)]">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-lg font-bold text-primary">This Week</h2>
+<span class="bg-primary-fixed text-primary text-xs font-bold px-2 py-1 rounded">5 Remaining</span>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-all">
+<div class="bg-surface-container-high w-12 h-12 flex flex-col items-center justify-center rounded-lg text-primary shrink-0">
+<span class="text-xs font-bold">MAR</span>
+<span class="text-lg font-black leading-tight">17</span>
+</div>
+<div>
+<p class="font-bold text-sm">3 Sessions Pending</p>
+<p class="text-xs text-secondary">Tuesday: 10:00 - 15:30</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-all">
+<div class="bg-surface-container-high w-12 h-12 flex flex-col items-center justify-center rounded-lg text-primary shrink-0">
+<span class="text-xs font-bold">MAR</span>
+<span class="text-lg font-black leading-tight">18</span>
+</div>
+<div>
+<p class="font-bold text-sm">2 Sessions Pending</p>
+<p class="text-xs text-secondary">Wednesday: 09:00 - 12:00</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-all opacity-60">
+<div class="bg-surface-container-high w-12 h-12 flex flex-col items-center justify-center rounded-lg text-primary shrink-0">
+<span class="text-xs font-bold text-secondary">MAR</span>
+<span class="text-lg font-black text-secondary leading-tight">19</span>
+</div>
+<div>
+<p class="font-bold text-sm">No Sessions</p>
+<p class="text-xs text-secondary">Thursday (Admin Day)</p>
+</div>
+</li>
+</ul>
+<button class="w-full mt-6 py-3 text-sm font-bold text-primary border-2 border-primary/10 rounded-full hover:bg-primary-container hover:text-white transition-all">
+                            Request Coverage
+                        </button>
+</div>
+<!-- Client Focus Card - Modern Visual -->
+<div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl shadow-xl text-white">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed">tips_and_updates</span>
+<span class="text-xs font-bold tracking-widest uppercase">Therapy Tip</span>
+</div>
+<p class="text-sm font-medium leading-relaxed mb-4">
+                            "Consistent sensory input for #A12 has shown a 20% increase in focus duration this month."
+                        </p>
+<div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-tertiary-fixed"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-surface-container-highest flex justify-around items-center py-3 z-50 px-4">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center text-secondary" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold">Schedule</span>
+</a>
+<a class="flex flex-col items-center text-secondary" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-bold">Notes</span>
+</a>
+<a class="flex flex-col items-center text-secondary" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold">Pay</span>
+</a>
+</nav>
+<!-- Contextual FAB - Restricted to Dashboard -->
+<button class="fixed bottom-24 right-8 md:bottom-12 md:right-12 bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined">add</span>
+<span class="absolute right-full mr-4 bg-primary px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-lg">New Session Note</span>
+</button>
+</body></html>
