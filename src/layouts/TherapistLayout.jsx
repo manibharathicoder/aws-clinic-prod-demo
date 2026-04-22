@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/layout/Sidebar.jsx';
+import TherapistSidebar from '../components/layout/TherapistSidebar.jsx';
 import Topbar from '../components/layout/Topbar.jsx';
 
-export default function SuperAdminLayout() {
+export default function TherapistLayout() {
   return (
     <>
-      <Sidebar />
+      <TherapistSidebar />
       <main className="ml-72 min-h-screen">
         <Topbar />
         <Outlet />

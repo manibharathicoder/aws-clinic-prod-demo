@@ -7,10 +7,10 @@ export default function Topbar() {
         <div className="relative w-full max-w-md">
           <MaterialIcon
             name="search"
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-outline"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111827]/45"
           />
           <input
-            className="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-outline-variant transition-all"
+            className="w-full bg-white border border-[#111827]/25 rounded-xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-[#111827]/35 placeholder:text-[#111827]/40 transition-all"
             placeholder="Search across clinical records..."
             type="text"
           />
@@ -57,6 +57,7 @@ export default function Topbar() {
           <img
             alt="Provider Profile Avatar"
             className="w-9 h-9 rounded-full object-cover ring-2 ring-primary/10"
+            style={{ width: 36, height: 36 }}
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCUa1sj5t4vy_mKQjiAk6XnzLi94s5Oz2pwH9Tw_bvX7ZjfwHndOJ1HAceFMrVruTIa6jdpQ6Q9jAuF-Mk5QDbgemcxMSsLpGCus46cy-x94eSzMP9q8SMP71vL9iiPhzAeTCR5_y6FmhqZ0B4Im9UtgV0CRaE8P9staB40TfvufGJVRuK7P6JKmiyX7oX5S2hrY8oMri14ayOKxMzDCFQZfKZDKHhbJiof33DNPHg9cicp3uCIsAOiaPDDnONPlH44el1aXdQVA"
           />
         </div>

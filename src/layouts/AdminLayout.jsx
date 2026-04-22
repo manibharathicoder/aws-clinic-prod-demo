@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/layout/Sidebar.jsx';
+import AdminSidebar from '../components/layout/AdminSidebar.jsx';
 import Topbar from '../components/layout/Topbar.jsx';
 
-export default function SuperAdminLayout() {
+export default function AdminLayout() {
   return (
     <>
-      <Sidebar />
+      <AdminSidebar />
       <main className="ml-72 min-h-screen">
         <Topbar />
         <Outlet />
